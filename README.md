@@ -1,5 +1,6 @@
-# edc-facility
+[![Build Status](https://travis-ci.org/clinicedc/edc-facility.svg?branch=develop)](https://travis-ci.org/clinicedc/edc-facility) [![Coverage Status](https://coveralls.io/repos/clinicedc/edc-facility/badge.svg?branch=develop&service=github)](https://coveralls.io/github/clinicedc/edc-facility?branch=develop)
 
+# edc-facility
 
 ### Customizing appointment scheduling by `Facility`
 
@@ -7,7 +8,7 @@ Appointment scheduling can be customized per `facility` or clinic:
 
 Add each facility to `app_config.facilities` specifying the facility `name`, `days` open and the maximum number of `slots` available per day:
 
-    from edc_appointment.apps import AppConfig as EdcAppointmentAppConfig
+    from edc_facility.apps import AppConfig as EdcAppointmentAppConfig
 
     class AppConfig(EdcAppointmentAppConfig):
 
