@@ -4,6 +4,7 @@ import sys
 from django.core.checks import Warning
 from django.conf import settings
 
+from django.db.utils import OperationalError
 
 def holiday_check(app_configs, **kwargs):
     from .models import Holiday
@@ -33,7 +34,10 @@ def holiday_check(app_configs, **kwargs):
                 id='edc_facility.002'))
 
     if 'makemigrations' not in sys.argv and 'migrate' not in sys.argv:
-        if Holiday.objects.all().count() == 0:
+        try:
+            if Holiday.objects.all().count() == 0:
+                raise OperationalError
+        except OperationalError:
             errors.append(
                 Warning(
                     'Holiday table is empty. Run management command \'import_holidays\'. '
