@@ -27,6 +27,7 @@ before_script:
 
 script:
 - coverage run --source=edc_facility manage.py test
+- python manage.py check
 
 after_success:
 - coveralls
