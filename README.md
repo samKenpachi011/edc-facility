@@ -1,4 +1,13 @@
-[![Build Status](https://travis-ci.org/clinicedc/edc-facility.svg?branch=develop)](https://travis-ci.org/clinicedc/edc-facility) [![Coverage Status](https://coveralls.io/repos/clinicedc/edc-facility/badge.svg?branch=develop&service=github)](https://coveralls.io/github/clinicedc/edc-facility?branch=develop)
+[![Build Status](https://app.travis-ci.com/samKenpachi011/edc-facility.svg?branch=develop)](https://app.travis-ci.com/samKenpachi011/edc-facility)
+
+[![Coverage Status](https://coveralls.io/repos/github/samKenpachi011/edc-facility/badge.svg?branch=develop)](https://coveralls.io/github/samKenpachi011/edc-facility?branch=develop)
+
+
+[![Language](https://img.shields.io/badge/Language-Python-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)](https://github.com/samKenpachi011/edc-facility/releases/tag/v1.0.0)
+[![Log Scan Status](https://img.shields.io/badge/Log%20Scan-Passing-brightgreen.svg)](https://app.travis-ci.com/github/samKenpachi011/edc-facility/logscans)
+
 
 # edc-facility
 
@@ -20,7 +29,7 @@ To schedule an appointment that falls on a day that the clinic is open, isn't a 
 
     from edc_base.utils import get_utcnow
     from .facility import Facility
-    
+
     suggested_datetime = get_utcnow()
     available_datetime = facility.available_datetime(suggested_datetime)
 
@@ -34,7 +43,7 @@ If holidays are entered (in model `Holiday`) and the appointment lands on a holi
 
     from .facility import Facility
     from .models import Holiday
-    
+
     Holiday.objects.create(
         name='Id-ul-Adha (Feast of the Sacrifice)',
         date=date(2015, 9, 24)
@@ -44,4 +53,3 @@ If holidays are entered (in model `Holiday`) and the appointment lands on a holi
     print(available_datetime)  # 2015-09-29 00:00:00, TU
 
 The maximum number of possible scheduling slots per day is configured in `app_config`. As with the holiday example above, the appointment date will be incremented forward to a day with an available slot.
-
